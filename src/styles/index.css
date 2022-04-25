@@ -62,6 +62,9 @@ code {
   .App {
     flex-direction: column;
   }
+  .app__rightContainer {
+    margin-top: 50px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -74,6 +77,7 @@ code {
     text-align: center;
   }
 }
+
 
 .table {
   margin-top: 20px;
