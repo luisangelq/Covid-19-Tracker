@@ -47,11 +47,21 @@ const options = {
   },
 };
 
-const LineGraph = ({ casesType = "cases" }) => {
+const LineGraph = ({ casesType }) => {
   const [data, setData] = useState({});
 
+  const giveColor = () => {
+    if (casesType === "cases") {
+      return "#f0ca3d";
+    } else if (casesType === "recovered") {
+      return "#7dd71d";
+    } else if (casesType === "deaths") {  
+      return "#ff0000";
+    }
+  }
+
   // build chart data
-  const buildChartData = (data, casesType = "cases") => {
+  const buildChartData = (data) => {
     let chartData = [];
     let lastDataPoint;
     for (let date in data.cases) {
@@ -75,7 +85,6 @@ const LineGraph = ({ casesType = "cases" }) => {
           "https://api.covid19.bnn.go.id/v3/covid-19/historical/all?lastdays=120"
         );
         const data = await response.json();
-
         const chartData = buildChartData(data);
         setData(chartData);
       } catch (error) {
@@ -83,7 +92,8 @@ const LineGraph = ({ casesType = "cases" }) => {
       }
     };
     fetchData();
-  }, []);
+    // eslint-disable-next-line
+  }, [casesType]);
 
   return (
     <div className="chartContainer">
@@ -95,8 +105,7 @@ const LineGraph = ({ casesType = "cases" }) => {
             data={{
               datasets: [
                 {
-                  backgroundColor: "rgba(204, 16, 52, 0.5)",
-                  borderColor: "#CC1034",
+                  backgroundColor: giveColor(),
                   data: data,
                 },
               ],

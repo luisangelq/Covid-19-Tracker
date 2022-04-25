@@ -34,12 +34,44 @@ code {
 .app__stats {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 20px;
+}
+.infoBox {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px #ccc;
+
+}
+.infoBox:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+  background-color: #f5f6fa;
+}
+.infoBox__cases {
+  color: #cc1034;
+  font-size: 1.75rem;
+  font-weight: 600;
+
 }
 
 @media (max-width: 990px) {
   .App {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .app__stats {
+    flex-direction: column;
+  }
+
+  .app__header {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -96,3 +128,27 @@ code {
 .map .leaflet-container {
   height: 100%;
 }
+
+
+.infoPop{
+  
+}
+.infoPop__flag img{
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+
+}
+
+.infoPop__name,
+.infoPop__cases,
+.infoPop__recovered,
+.infoPop__deaths {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.infoPop__name {
+  font-weight: bold;
+  font-size: 20px;
+}
+

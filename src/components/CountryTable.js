@@ -1,4 +1,5 @@
 import React from "react";
+import numeral from "numeral";
 
 const CountryTable = ({ countries }) => {
 
@@ -13,7 +14,7 @@ const CountryTable = ({ countries }) => {
           <tr>
             <td>{country}</td>
             <td>
-              <strong>{cases}</strong>
+              <strong>{numeral(cases).format("0,0")}</strong>
             </td>
           </tr>
         ))}
