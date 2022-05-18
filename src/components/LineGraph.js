@@ -82,7 +82,7 @@ const LineGraph = ({ casesType }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.covid19.bnn.go.id/v3/covid-19/historical/all?lastdays=120"
+          "https://disease.sh/v3/covid-19/historical/all?lastdays=120"
         );
         const data = await response.json();
         const chartData = buildChartData(data);

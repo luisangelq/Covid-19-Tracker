@@ -23,7 +23,7 @@ function App() {
     const fetchCountries = async () => {
       try {
         const response = await fetch(
-          "https://api.covid19.bnn.go.id/v3/covid-19/countries"
+          "https://disease.sh/v3/covid-19/countries"
         );
         const data = await response.json();
 
@@ -52,8 +52,8 @@ function App() {
   const getCountryData = async (countryCode) => {
     const url =
       countryCode === "worldwide"
-        ? "https://api.covid19.bnn.go.id/v3/covid-19/all"
-        : `https://api.covid19.bnn.go.id/v3/covid-19/countries/${countryCode}`;
+        ? "https://disease.sh/v3/covid-19/all"
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
     try {
       const response = await fetch(url);
